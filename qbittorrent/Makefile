@@ -32,7 +32,7 @@ define Package/qbittorrent
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=BitTorrent
-	DEPENDS:=+qt5-core +qt5-network +qt5-xml +libtorrent-rasterbar
+	DEPENDS:=+qt5-core +qt5-network +qt5-xml +rblibtorrent
 	TITLE:=bittorrent client programmed in C++ / Qt
 	URL:=https://www.qbittorrent.org/
 	PROVIDES:=qBittorrent
