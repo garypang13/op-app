@@ -106,7 +106,7 @@
          <file>skin/qbittorrent32.png</file>
          <file>skin/queued.svg</file>
          <file>skin/ratio.svg</file>
-@@ -370,17 +316,12 @@
+@@ -370,16 +316,12 @@
          <file>skin/spacer.gif</file>
          <file>skin/spinner-placeholder.gif</file>
          <file>skin/spinner.gif</file>
