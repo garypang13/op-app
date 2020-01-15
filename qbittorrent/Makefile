@@ -11,9 +11,11 @@ PKG_NAME:=qbittorrent
 PKG_VERSION:=4.2.1.10
 PKG_RELEASE=1
 
-PKG_SOURCE:=$(PKG_NAME)-release-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://codeload.github.com/c0re100/qBittorrent-Enhanced-Edition/tar.gz/release-$(PKG_VERSION)?
-PKG_HASH:=skip
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/arvidn/libtorrent.git
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_VERSION:=latest
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/qBittorrent-release-$(PKG_VERSION)
 
