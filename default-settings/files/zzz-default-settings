@@ -12,40 +12,38 @@ uci commit fstab
 
 ln -sf /sbin/ip /usr/bin/ip
 
-#sed -i 's/downloads.openwrt.org/openwrt.proxy.ustclug.org/g' /etc/opkg/distfeeds.conf
-#sed -i 's/http/https/g' /etc/opkg/distfeeds.conf
-#sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
-
 sed -i "s/# //g" /etc/opkg/distfeeds.conf
-
-#uci set dhcp.lan.ra='server'
-#uci set dhcp.lan.dhcpv6='server'
-#uci set dhcp.lan.ra_management='1'
-#uci set dhcp.lan.ra_default='1'
-#uci commit dhcp
-
-#设置IP
-#uci set network.lan.ipaddr='192.168.119.10'
-#uci set network.lan.netmask='255.255.255.0'
-#uci commit network
-
-sed -i '/REDIRECT --to-ports 53/d' /etc/firewall.user
-echo "# iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53" >> /etc/firewall.user
-echo "# iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53" >> /etc/firewall.user
 
 sed -i '/option disabled/d' /etc/config/wireless
 sed -i '/set wireless.radio${devidx}.disabled/d' /lib/wifi/mac80211.sh
 wifi up
 
-sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
-echo "DISTRIB_REVISION='19.07'" >> /etc/openwrt_release
-sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
-echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
-
 sed -i '/log-facility/d' /etc/dnsmasq.conf
 echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
 
 rm -rf /tmp/luci-*
+
+sed -i 's/root::0:0:99999:7:::/root:$1$7f4YP/NX$VEZzIMnAEu36noAjugtp2.:18280:0:99999:7:::/g' /etc/shadow
+
+uci set luci.main.mediaurlbase=/luci-static/argon
+uci commit luci
+
+uci set network.lan.ipaddr="10.0.0.2"
+uci set network.lan.ifname="eth1 eth3"
+uci set network.wan.proto=pppoe
+uci set network.wan.ifname=eth2
+uci set network.wan.username=07399254173
+uci set network.wan.password=139715
+uci commit network
+
+rm -Rf /etc/rc.d/S99haproxy
+ln -sf /usr/bin/python3 /usr/bin/python
+ln -sf /usr/bin/python /usr/bin/py
+ln -sf /usr/lib/netdata/conf.d /etc/netdata/conf.d
+ln /usr/lib/netdata/conf.d/charts.d.conf /etc/netdata/charts.d.conf
+ln /usr/lib/netdata/conf.d/python.d.conf /etc/netdata/python.d.conf
+ln -f /etc/netdata/charts.d.conf /usr/lib/netdata/conf.d/charts.d.conf
+ln -f /etc/netdata/python.d.conf /usr/lib/netdata/conf.d/python.d.conf
 
 exit 0
 
