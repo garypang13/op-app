@@ -37,6 +37,8 @@ uci set network.wan.password=139715
 uci commit network
 
 rm -Rf /etc/rc.d/S99amule
+chmod +x /www/nas
+
 ln -sf /usr/bin/python3 /usr/bin/python
 ln -sf /usr/bin/python /usr/bin/py
 ln -sf /usr/lib/netdata/conf.d /etc/netdata/conf.d
