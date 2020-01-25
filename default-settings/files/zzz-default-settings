@@ -38,6 +38,7 @@ uci commit network
 
 /etc/init.d/amule disable
 chmod -R 777 /www/nas/
+cp -R /www/cgi-bin/luci /www/admin
 mv /www/ariang /www/ng
 
 ln -sf /usr/bin/python3 /usr/bin/python
