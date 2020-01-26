@@ -99,7 +99,9 @@ validate_QBT () {
 		'Backup:or("true","false")' \
 		'DeleteOld:or("true","false")' \
 		'MaxSizeBytes:integer' \
-		'SaveTime:string'
+		'SaveTime:string' \
+		'AutoUpdateTrackers:or("true","false"):true' \
+		'CustomizeTrackersListUrl:string'
 }
 
 sed_options () {
@@ -177,7 +179,7 @@ EOF
 				"PortRangeMin" "InetAddress" "UPnP"
 	sed_options "Preferences" "Bittorrent" \
 				"DHT" "Encryption" "LSD" "MaxConnecs" "MaxConnecsPerTorrent" "MaxRatio" \
-				"MaxRatioAction" "MaxUploads" "MaxUploadsPerTorrent" "PeX" "uTP_rate_limited"
+				"MaxRatioAction" "MaxUploads" "MaxUploadsPerTorrent" "PeX" "uTP_rate_limited" "AutoUpdateTrackers" "CustomizeTrackersListUrl"
 	sed_options "Preferences" "Advanced" \
 				"AnnounceToAllTrackers" "AnonymousMode" "IgnoreLimitsLAN" "IncludeOverhead" "osCache" "OutgoingPortsMax" \
 				"OutgoingPortsMin" "SuperSeeding"
