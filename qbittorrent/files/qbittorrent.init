@@ -101,7 +101,7 @@ validate_QBT () {
 		'MaxSizeBytes:integer' \
 		'SaveTime:string' \
 		'AutoUpdateTrackers:or("true","false"):true' \
-		'CustomizeTrackersListUrl:string'
+		'CustomizeTrackersListUrl:string:https://trackerslist.com/all.txt'
 }
 
 sed_options () {
