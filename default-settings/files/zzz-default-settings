@@ -22,8 +22,6 @@ wifi up
 sed -i '/log-facility/d' /etc/dnsmasq.conf
 echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
 
-sed -i 's/cbi.submit\"] = true/cbi.submit\"] = \"1\"/g' /usr/lib/lua/luci/dispatcher.lua
-
 rm -rf /tmp/luci-*
 
 sed -i 's/root::0:0:99999:7:::/root:$1$7f4YP/NX$VEZzIMnAEu36noAjugtp2.:18280:0:99999:7:::/g' /etc/shadow
